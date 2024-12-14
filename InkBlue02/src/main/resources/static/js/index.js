@@ -1,6 +1,6 @@
 // Función para cargar los archivos recientes
 async function loadRecentFiles() {
-    const response = await fetch('/inkblue/recent');
+    const response = await fetch('http://localhost:8080/inkblue/recent');
     const files = await response.json();
     const list = document.getElementById('recent-files');
     list.innerHTML = files.map(file => `<li>${file}</li>`).join('');
@@ -10,13 +10,13 @@ async function loadRecentFiles() {
 async function createNewDocument() {
     const name = document.getElementById('documentName').value;
     if (name) {
-        fetch('/inkblue/new', {
+        fetch('http://localhost:8080/inkblue/new', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(name)
         }).then(() => window.location.href = 'workspace.html');
         try {
-            const response = await fetch('/inkblue/new', {
+            const response = await fetch('http://localhost:8080/inkblue/new', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(name)
