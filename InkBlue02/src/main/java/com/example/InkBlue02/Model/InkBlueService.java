@@ -54,26 +54,6 @@ public class InkBlueService {
         }
     }
 
-    // Obtener las pestañas abiertas
-    public ArrayList<String> getTabs() {
-        ArrayList<String> tabsList = new ArrayList<>();
-        for (int i = 0; i < tabs.size(); i++) {
-            tabsList.add(tabs.get(i).getName());  // Añadir el nombre de cada pestaña
-        }
-        return tabsList;  // Retornar la lista de pestañas
-    }
 
-    // Añadir una nueva pestaña
-    public void addTab(String tabName) {
-        boolean exists = false;
-        for (int i = 0; i < tabs.size(); i++) {
-            if (tabs.get(i).getName().equals(tabName)) {
-                exists = true;
-                break;
-            }
-        }
-        if (!exists) {
-            tabs.add(new InkBlue(tabName));  // Añadir una nueva pestaña si no existe
-        }
-    }
+
 }

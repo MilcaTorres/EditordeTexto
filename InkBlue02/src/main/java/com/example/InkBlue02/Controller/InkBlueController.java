@@ -4,7 +4,6 @@ import com.example.InkBlue02.Model.ArrayList;
 import com.example.InkBlue02.Model.InkBlueService;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.InkBlue02.Model.InkBlueService;
 
 // InkBlue Controller
 @RestController
@@ -47,14 +46,4 @@ public class InkBlueController {
         return service.getRecentFiles();
     }
 
-    // Endpoint to manage tabs
-    @GetMapping("/tabs")
-    public ArrayList<String> getTabs() {
-        return service.getTabs();
-    }
-
-    @PostMapping("/tabs/add")
-    public void addTab(@RequestBody String tabName) {
-        service.addTab(tabName);
-    }
 }

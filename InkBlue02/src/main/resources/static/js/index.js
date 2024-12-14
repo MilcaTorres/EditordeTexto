@@ -12,7 +12,7 @@ function createNewDocument() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(name)
-        }).then(() => window.location.href = '/workspace.html');
+        }).then(() => window.location.href = 'workspace.html');
     }
 }
 
