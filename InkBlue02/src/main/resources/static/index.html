@@ -21,7 +21,9 @@
         <h1>InkBloom</h1>
     </div>
     <div>
-      <button onclick="createNewDocument()"><i class="icon fas fa-file-alt"></i> Crear Documento</button>
+      <button class="boton" data-bs-toggle="modal" data-bs-target="#createDocumentModal">
+        <i class="icon fas fa-file-alt"></i> Crear Documento
+      </button>
             
     </div>
 </header>
@@ -45,15 +47,30 @@
         InkBloom es más que un simple editor de texto; es un espacio creativo en la web donde las ideas florecen. Con una interfaz elegante y fácil de usar, InkBloom combina las mejores características de un procesador de texto con herramientas innovadoras que facilitan la escritura, edición y trabajo en equipo en tiempo real.</p>
     </div>
 
-    <!-- Modal -->
-    <div class="modal" id="myModal">
-        <div class="modal-content">
-            <h3>Asignar Nombre al Documento</h3>
-            <input type="text" id="documentName" class="form-control" placeholder="Ingresa el nombre del documento">
-            <button class="submit" id="submitName">Aceptar</button>
-            <button class="close" id="closeModal">Cerrar</button>
-        </div>
+    
+<!-- Modal Bootstrap -->
+<div class="modal fade" id="createDocumentModal" tabindex="-1" aria-labelledby="createDocumentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createDocumentModalLabel">Crear Nuevo Documento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="createDocumentForm">
+          <div class="mb-3">
+            <label for="documentName" class="form-label">Nombre del Documento</label>
+            <input type="text" class="form-control" id="documentName" placeholder="Ingrese el nombre del documento" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="createDocumentButton">Crear Documento</button>
+      </div>
     </div>
+  </div>
+</div>
 
 
 <footer class="footer">

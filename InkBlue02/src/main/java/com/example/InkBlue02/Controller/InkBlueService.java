@@ -1,5 +1,8 @@
-package com.example.InkBlue02.Model;
+package com.example.InkBlue02.Controller;
 
+import com.example.InkBlue02.Model.ArrayList;
+import com.example.InkBlue02.Model.InkBlue;
+import com.example.InkBlue02.Model.LinkedList;
 import org.springframework.stereotype.Service;
 
 // InkBlue Service
