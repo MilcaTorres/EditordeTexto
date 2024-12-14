@@ -1,35 +1,66 @@
-<!-- index.html -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>InkBlue - Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logo2.png">
+    <link rel="stylesheet" href="css/index.css">
+    <title>InkBlue - Home</title>
 </head>
 <body>
-<h1>Bienvenido a InkBlue</h1>
-<button onclick="createNewDocument()">Crear nuevo Documento</button>
-<h3>Recent Files:</h3>
-<ul id="recent-files"></ul>
 
-<script>
-  async function loadRecentFiles() {
-      const response = await fetch('/inkblue/recent');
-      const files = await response.json();
-      const list = document.getElementById('recent-files');
-      list.innerHTML = files.map(file => `<li>${file}</li>`).join('');
-  }
+<header class="header">
+    <div class="logo">
+        <img src="img/inkbloom.png" alt="InkBloom Logo" class="logo-img">
+    </div>
+    <div class="titulo">
+        <h1>InkBloom</h1>
+    </div>
+    <div>
+      <button onclick="createNewDocument()"><i class="icon fas fa-file-alt"></i> Crear Documento</button>
+            
+    </div>
+</header>
+<br>
 
-  function createNewDocument() {
-      const name = prompt("Enter document name:");
-      if (name) {
-          fetch('/inkblue/new', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(name)
-          }).then(() => window.location.href = '/workspace.html');
-      }
-  }
+<div class="container">
+    <h2>Inkbloom </h2>
 
-  loadRecentFiles();
-</script>
+
+  <div class="card">
+    <ul id="recent-files"></ul>
+  </div>
+
+    <div class="card">
+        <h3>¿Quiénes Somos?</h3>
+       <p>InkBloom: Transformando la forma en que creamos y colaboramos en línea <br>
+
+        En el dinámico mundo digital actual, la escritura no es solo una herramienta, es un puente hacia la creatividad, la colaboración y la comunicación efectiva. Es por ello que presentamos InkBloom, un editor de texto en línea diseñado para quienes buscan una experiencia de escritura intuitiva, poderosa y colaborativa. <br>
+        
+        ¿Qué es InkBloom?
+        InkBloom es más que un simple editor de texto; es un espacio creativo en la web donde las ideas florecen. Con una interfaz elegante y fácil de usar, InkBloom combina las mejores características de un procesador de texto con herramientas innovadoras que facilitan la escritura, edición y trabajo en equipo en tiempo real.</p>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <h3>Asignar Nombre al Documento</h3>
+            <input type="text" id="documentName" class="form-control" placeholder="Ingresa el nombre del documento">
+            <button class="submit" id="submitName">Aceptar</button>
+            <button class="close" id="closeModal">Cerrar</button>
+        </div>
+    </div>
+
+
+<footer class="footer">
+    <p>&copy; 2024 InkBloom. Todos los derechos reservados.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
